@@ -6,8 +6,8 @@ const app = express();
 const log = log4js.getLogger('app');
 
 log4js.configure({
-  appenders: { logfile: { type: 'file', filename: 'logs/app.log' } },
-  categories: { default: { appenders: ['logfile'], level: 'info' } },
+  appenders: { logfile: { type: 'file', filename: 'logs/app.log' }, stdout: { type: 'stdout' } },
+  categories: { default: { appenders: ['logfile', 'stdout'], level: 'info' } },
 });
 
 // configuration per environment
@@ -39,7 +39,7 @@ app.use(api);
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  next(err); // TODO this will log a stack trace. Not great for production
 });
 
 /**

@@ -16,7 +16,7 @@ const api = ((log4js, express, apiService) => {
     });
   });
 
-  return api;
+  return router;
 });
 
 module.exports = api;
