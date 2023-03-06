@@ -1,0 +1,85 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "frontend hot-reload",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/frontend"
+        },
+        {
+            "name": "frontend compile and minify",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "build"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/frontend"
+        },
+        {
+            "name": "frontend unit test",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "test:unit"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/frontend"
+        },
+        {
+            "name": "frontend e2e test",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "test:e2e:dev"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "cwd": "${workspaceFolder}/frontend"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "backend run",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/backend/src/server.js",
+            "cwd": "${workspaceFolder}/backend"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "backend test",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/backend/node_modules/mocha/bin/mocha",
+            "args": "--recursive",
+            "cwd": "${workspaceFolder}/backend"
+        }
+    ]
+}
