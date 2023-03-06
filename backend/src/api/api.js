@@ -1,4 +1,4 @@
-const api = ((log4js, express) => {
+const api = ((log4js, express, apiService) => {
   const log = log4js.getLogger('/api');
   const router = express.Router();
 
@@ -8,9 +8,12 @@ const api = ((log4js, express) => {
    *  result: result
    *
    */
-  router.get('/api/url', (req, res) => {
-    log.info('api call log');
-    res.send(200); // send ack for the purpose of the template
+  router.get('/api/search/:keyword', (req, res) => {
+    const { keyword } = req.params.keyword;
+    log.info(`keyword was ${keyword}`);
+    apiService.search(keyword, () => {
+      res.send(200);
+    });
   });
 
   return api;

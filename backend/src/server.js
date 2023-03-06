@@ -13,7 +13,7 @@ log4js.configure({
 // configuration per environment
 const environment = process.argv[2] || app.get('env') || 'development';
 
-const serverConfig = require('./env.json')[environment];
+const serverConfig = require('../env.json')[environment];
 
 if (serverConfig === undefined) {
   log.error('error loading config');
@@ -23,14 +23,11 @@ if (serverConfig === undefined) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const model = require('./model/model')(log4js);
-
-model.connect();
-
 /**
  * set api routes up
  */
-const api = require('./api/api')(log4js, express, model);
+const apiService = require('./api/api-service')(log4js);
+const api = require('./api/api')(log4js, express, apiService);
 
 app.use(api);
 
