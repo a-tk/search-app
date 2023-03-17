@@ -70,6 +70,11 @@ process.on('SIGINT', () => {
   process.exit();
 });
 
+process.on('unhandledRejection', (reason, promise) => {
+  log.error(`Unhandled promise rejection occurred. 
+              Reason: ${reason} from promise: ${promise}`);
+});
+
 app.listen(serverConfig.port, () => {
   log.info(`app listening on port ${serverConfig.port}`);
 });

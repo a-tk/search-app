@@ -1,10 +1,12 @@
 const apiService = ((log4js) => {
   const log = log4js.getLogger('api-service');
 
-  const search = (keyword, callback) => {
+  const search = async (keyword) => {
     log.info(`search called with ${keyword}`);
-
-    callback();
+    return new Promise((resolve, reject) => {
+      // do something
+      resolve(); // or reject()
+    });
   };
 
   return {
