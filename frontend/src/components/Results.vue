@@ -1,12 +1,22 @@
 <script setup>
-import Result from './Result.vue'
+defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  desc: {
+    type: String,
+    required: true
+  }
+})
 </script>
 
 <template>
-  <Result>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
-  </Result>
+  <h1 href="{{ link }}" >{{ title }}</h1>
+  <br>
+  <p>{{ desc }}</p>
 </template>

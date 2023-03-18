@@ -4,6 +4,6 @@ import Results from '../components/Results.vue'
 
 <template>
   <main>
-    <Results />
+    <Results title="test" link="http://www.google.com" desc="This is a dummy desc"/>
   </main>
 </template>

@@ -10,7 +10,12 @@ defineProps({
 <template>
   <div class="greetings">
     <h1 class="black">Wikipedia Search</h1>
-    <!-- want to have a search bar and button -->
+    <input type="text" class="form-control" placeholder="Keyword Search" v-model="title"/>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" @click="search">
+          Search
+        </button>
+      </div>
   </div>
 </template>
 
