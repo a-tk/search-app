@@ -3,7 +3,7 @@ const api = ((log4js, express, apiService) => {
   const router = express.Router();
 
   /**
-   *  url: /api/url
+   *  url: /api/search/keyword
    *  method: METHOD
    *  result: result
    *

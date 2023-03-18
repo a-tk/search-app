@@ -1,6 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>A Simple Search Application</h1>
+    <p>This project is a simple demonstration of a Vue frontend with NodeJS backend</p>
   </div>
 </template>
 

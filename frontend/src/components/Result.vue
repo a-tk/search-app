@@ -1,11 +1,13 @@
 <template>
-  <div class="item">
+  <div class="result">
     <i>
       <slot name="icon"></slot>
+      <!-- want a link there for the result -->
     </i>
     <div class="details">
       <h3>
         <slot name="heading"></slot>
+        <!-- want a description from the search results -->
       </h3>
       <slot></slot>
     </div>
@@ -13,7 +15,7 @@
 </template>
 
 <style scoped>
-.item {
+.result {
   margin-top: 2rem;
   display: flex;
 }

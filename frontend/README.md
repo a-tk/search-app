@@ -1,14 +1,8 @@
-# js-app-template-frontend
+# search-app-js-frontend
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+A simple frontend for the search application. Will show a search
+dialog, search button, and load a link for the first result for the 
+searched term and a summary from Mediawiki API. 
 
 ## Project Setup
 
