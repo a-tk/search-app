@@ -10,16 +10,14 @@ const api = ((log4js, express, apiService) => {
    */
   router.get('/api/search/:keyword', async (req, res) => {
     const { keyword } = req.params;
-    log.info(`keyword was ${keyword}`);
     try {
-      await apiService.search(keyword);
-      res.send(200);
+      const data = await apiService.search(keyword);
+      res.send(data.query);
     } catch (e) {
       log.error('Error occurred');
       res.send(500);
     }
   });
-
   return router;
 });
 
