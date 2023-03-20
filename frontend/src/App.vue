@@ -2,7 +2,7 @@
   <Layout>
     <div>
 
-      <h2>Hello {{ user.name }}</h2>
+      <h2>Hello</h2>
 
       <form @submit.prevent="addItemToCart">
       <!-- <form @submit.prevent="addItemToCart" data-testid="search"> -->
@@ -13,7 +13,7 @@
       <form @submit.prevent="buy">
         <ul data-testid="items">
           <li v-for="item in cart.items" :key="item.name">
-            {{ item.name }} ({{ item.amount }})
+            test (4)
             <button
               @click="cart.removeItem(item.name)"
               type="button"

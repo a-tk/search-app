@@ -1,6 +1,6 @@
-const axios = require('axios');
+import axios from 'axios';
 
-const api = (() => {
+export const api = (() => {
 
   const search = async (keyword) => {
     let data;
@@ -17,5 +17,3 @@ const api = (() => {
     search,
   };
 });
-
-module.exports = api;

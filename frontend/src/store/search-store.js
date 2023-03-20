@@ -1,5 +1,5 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
-import { search } from '../api/api'
+import { api } from'../api/api';
 
 export const useSearchStore = defineStore({
   id: 'searchStore',
@@ -19,7 +19,7 @@ export const useSearchStore = defineStore({
 
       console.log('Searching', keywords)
 
-      const results = await search();
+      const results = await api().search();
       //set the model with the results
     },
 
