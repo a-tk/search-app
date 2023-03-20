@@ -12,7 +12,7 @@ const api = ((log4js, express, apiService) => {
     const { keyword } = req.params;
     try {
       const data = await apiService.search(keyword);
-      res.send(data.query);
+      res.send(data.data.query.pages[0]);
     } catch (e) {
       log.error('Error occurred');
       res.send(500);

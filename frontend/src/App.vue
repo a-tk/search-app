@@ -2,32 +2,12 @@
   <Layout>
     <div>
 
-      <h2>Hello</h2>
+      <h2>Search for Articles</h2>
 
-      <form @submit.prevent="addItemToCart">
+      <form @submit.prevent="executeSearch">
       <!-- <form @submit.prevent="addItemToCart" data-testid="search"> -->
-        <input type="text" v-model="itemName" />
-        <button>Add</button>
-      </form>
-
-      <form @submit.prevent="buy">
-        <ul data-testid="items">
-          <li v-for="item in cart.items" :key="item.name">
-            test (4)
-            <button
-              @click="cart.removeItem(item.name)"
-              type="button"
-            >X</button>
-          </li>
-        </ul>
-
-        <button :disabled="!user.name">Buy</button>
-        <button
-          :disabled="!cart.items.length"
-          @click="clearCart"
-          type="button"
-          data-testid="clear"
-        >Clear the cart</button>
+        <input type="text" v-model="keywords" />
+        <button>Search</button>
       </form>
     </div>
   </Layout>
@@ -45,9 +25,9 @@ export default defineComponent({
   setup() {
     const searchStore = useSearchStore()
 
-    const itemName = ref('')
+    const keywords = ref('')
 
-    async function executeSearch(keywords) {
+    async function executeSearch() {
       const n = await searchStore.search(keywords)
     }
 
