@@ -38,9 +38,9 @@ export default defineComponent({
   components: { Layout },
 
   setup() {
-    const searchStore = useSearchStore()
+    const searchStore = useSearchStore();
 
-    const keywords = ref('')
+    const keywords = ref('');
 
     async function executeSearch() {
       if (!keywords.value) return;
