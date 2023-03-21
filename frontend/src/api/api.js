@@ -6,6 +6,7 @@ export const api = (() => {
     let data = '';
 
     try {
+      keyword = encodeURIComponent(keyword);
       data = await axios.get(`http://localhost:3000/api/search/${keyword}`);
     } catch (err) {
       console.log(`Error occurred! ${err}`);
