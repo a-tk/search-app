@@ -19,8 +19,11 @@ export const useSearchStore = defineStore({
 
       console.log('Searching', keywords)
 
-      const results = await api().search();
+      const results = await api().search(keywords);
       //set the model with the results
+      this.setTitle(results.title);
+      this.setHref(results.fullurl);
+      this.setDesc(results.extract);
     },
 
     setTitle(title) {

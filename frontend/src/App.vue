@@ -10,6 +10,21 @@
         <button>Search</button>
       </form>
     </div>
+
+    <div v-if="searchStore.title">
+      <h2> Results </h2>
+      <a v-bind:href="searchStore.href"> {{ searchStore.title }} </a>
+       <br>
+       <br>
+       <div v-if="searchStore.desc">
+      {{ searchStore.desc }}
+      </div>
+      <div v-else>
+        No description found. 
+      </div>
+      
+
+    </div>
   </Layout>
 </template>
 
@@ -28,13 +43,18 @@ export default defineComponent({
     const keywords = ref('')
 
     async function executeSearch() {
-      const n = await searchStore.search(keywords)
+      if (!keywords.value) return;
+      await searchStore.search(keywords.value)
+      keywords.value = '';
+      
     }
 
     // @ts-ignore
     window.stores = { searchStore }
 
     return {
+      keywords,
+
       searchStore,
       executeSearch,
     }

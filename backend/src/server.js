@@ -1,6 +1,7 @@
 const express = require('express');
 const log4js = require('log4js');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const log = log4js.getLogger('app');
@@ -22,6 +23,7 @@ if (serverConfig === undefined) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 /**
  * set api routes up
@@ -61,13 +63,6 @@ app.use((err, req, res) => {
   res.status(err.status || 500);
   log.error(`${err.status} - ${err.message}: Error in request of ${req.originalUrl} from ${req.ip}`);
   res.send(`err.status: ${err.message}`);
-});
-
-process.on('SIGINT', () => {
-  log.info('CTRL C detected, exiting gracefully');
-  // anything to clean up before exiting? Helpful to close
-  // GPIO on raspberry pi
-  process.exit();
 });
 
 process.on('unhandledRejection', (reason, promise) => {
