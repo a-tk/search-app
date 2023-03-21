@@ -20,12 +20,16 @@ const apiService = ((log4js, url) => {
       data = await axios.get(wikiUrl + keyword);
     } catch (err) {
       log.error(`encountered ${err}`);
+      return err;
     }
     return data;
   };
 
+  const getWikiEndpoint = () => wikiUrl;
+
   return {
     search,
+    getWikiEndpoint,
   };
 });
 
