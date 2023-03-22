@@ -1,46 +1,46 @@
 // stores/counter.spec.ts
 import { setActivePinia, createPinia } from 'pinia';
 import { useSearchStore } from './search-store';
-import { describe, expect, beforeEach, toBe, it } from 'vitest'
+import { describe, expect, beforeEach, toBe, it } from 'vitest';
 
 describe('Search Store', () => {
   beforeEach(() => {
-    setActivePinia(createPinia())
-  })
+    setActivePinia(createPinia());
+  });
 
   it('starts with empty title', () => {
     const store = useSearchStore();
-    expect(store.getTitle()).toBe('');
+    expect(store.title).toBe('');
   });
 
   it('starts with empty href', () => {
     const store = useSearchStore();
-    expect(store.getHref()).toBe('');
+    expect(store.href).toBe('');
   });
 
   it('starts with empty desc', () => {
     const store = useSearchStore();
-    expect(store.getDesc()).toBe('');
+    expect(store.desc).toBe('');
   });
 
   it('can set title', () => {
     const store = useSearchStore();
-    expect(store.getTitle()).toBe('');
+    expect(store.title).toBe('');
     store.setTitle('title');
-    expect(store.getTitle()).toBe('title');
+    expect(store.title).toBe('title');
   });
 
   it('can set href', () => {
     const store = useSearchStore();
-    expect(store.getHref()).toBe('');
+    expect(store.href).toBe('');
     store.setHref('href');
-    expect(store.getHref()).toBe('href');
+    expect(store.href).toBe('href');
   });
 
   it('can set desc', () => {
     const store = useSearchStore();
-    expect(store.getDesc()).toBe('');
-    store.setTitle('desc');
-    expect(store.getDesc()).toBe('desc');
+    expect(store.desc).toBe('');
+    store.setDesc('desc');
+    expect(store.desc).toBe('desc');
   });
 });
