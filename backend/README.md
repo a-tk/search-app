@@ -1,9 +1,9 @@
-# js-app-template-backend
-A template for nodejs/express webapps
+# search-app-backend
+A simple server that will search for articles using the Wikipedia API
 
 ## Backend
 
-The backend is a simple NodeJS express application. 
+The backend is a simple NodeJS/Express application. 
 
 By default, the backend supports running different environment configuration
 using the env.js file and a parameter to server.js
